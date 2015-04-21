@@ -1,1 +1,2 @@
-Hello world! Bla Bla Bla:)
+Hello world! :)
+Good bye, world! :(
