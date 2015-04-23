@@ -9,6 +9,8 @@
 
     var size = 100;
     var numAr = [];
+	
+	// Display "Fizz" if multiple 3 and "Buzz" if multiple 5
     for (var i = 1; i <= size; i++) {
         if ((i % 3 == 0)) {
             numAr [i - 1] = "Fizz";
@@ -18,7 +20,8 @@
 
     }
     console.log(numAr.join(" "));
-
+	
+	// Display "Fizz" if multiple 3, "Buzz" if multiple 5 and FizzBuzz" if multiple both
     for (var i = 1; i <= size; i++) {
         if ((i % 5 == 0) && (i % 3 == 0)) {
             numAr [i - 1] = "FizzBuzz";
