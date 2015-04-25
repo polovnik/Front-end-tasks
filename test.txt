@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+Hello world! trtrtr:)
+=======
+Hello world! :)
+Good bye, world! :(
+>>>>>>> 7c83af141330c43b5552ad6e13dc7f9d6be3a229
