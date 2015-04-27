@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var firstContainer = $(".box:lt(3)");
+var firstContainer = $(".container:first .box");
 console.log(firstContainer);
 
 var oddLi = $("li:odd");
