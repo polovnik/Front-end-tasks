@@ -1,0 +1,97 @@
+@import "mixins.less";
+@import "variables.less";
+@import "reset.less";
+
+
+.container {
+    background: rgba(0, 0, 0, .3);
+    max-width: 1140px;
+    margin: 50px auto 0;
+    padding: 50px 100px;
+    .clear-flow;
+
+    .logo-holder {
+        float: left;
+        .logo {
+            padding: 0;
+            margin: 0;
+            font-size: 7.2em;
+            font-family: 'Tangerine', serif;
+            font-weight: normal;
+            float: left;
+        }
+        .pt {
+            margin: 0 0 0 10px;
+            padding: 0 0 0 0;
+            text-align: center;
+            width: 17px;
+            height: 17px;
+            display: block;
+            float: right;
+            
+            background: @btn-border-color;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 0.8em;
+
+        }
+    }
+
+    .social-holder {
+        float: right;
+
+
+        .slogan {
+            color: #fff;
+            font-size: @sub-nav-slogan-font-size;
+
+        }
+
+        .fb-likes {
+            vertical-align: middle;
+            padding: 0 30px 0;
+        }
+
+        .icon-sprites {
+
+            .reset-list-style;
+            float: right;
+
+            li {
+                float: left;
+            }
+
+            li + li {
+                margin: 0 0 0 4px;
+            }
+
+            a {
+                width: 16px;
+                height: 16px;
+                display: block;
+                .hide-text;
+                background: url(../img/icon-sprite.png) no-repeat;
+            }
+            .rss {
+                background-position: 0 0;
+            }
+
+            .twitter {
+                background-position: @bg-position  0;
+            }
+            .facebook {
+                background-position: @bg-position*2 0;
+            }
+            .dotts {
+                background-position: @bg-position*3 0;
+            }
+            .linkedIn {
+                background-position: @bg-position*4 0;
+            }
+        }
+
+    }
+}
+
+
+
