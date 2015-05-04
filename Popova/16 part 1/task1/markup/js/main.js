@@ -5,13 +5,13 @@ $(document).ready(function(){
 
 	function setHeight(){
 
-		$('.container').each(function(){
-			var boxes = $(this).find('.box, .block');
+		$('div.container').each(function(){
+			var boxes = $(this).find('div.box, div.block');
             var boxesLength = boxes.length;
 			if(!boxesLength){
 				return false;
 			}
-            var containerWidth = $('.container').width();
+            var containerWidth = $('div.container').width();
             var boxWidth = boxes.outerWidth();
             var qtyBoxes = Math.floor(containerWidth/boxWidth);
             var endIndex = qtyBoxes < boxesLength ? qtyBoxes : boxesLength;
@@ -32,23 +32,27 @@ $(document).ready(function(){
 		})
 	}
     function setListStyle(){
+        var ul = $('ul.list');
 
-        $('ul li:first-child').css('color', 'red');
+        // Set the text color red to the first element of each list
+        ul.find('li').filter(':first-child').css('color', 'red');
 
-        $('ul').each(function(){
-           $(this).find('li:odd').prepend(function(i){
-               return (i+1)*2 + ' ';
+        // Put the serial number in even elements of the list
+        ul.each(function(){
+           $(this).find('li:odd').text(function(i){
+               return (i+1)*2 + ' ' + $(this).text();
            });
         });
 
-        $('ul li').click(function(){
-            $(this).parent().find('li').removeClass('active');
+        // Set class "active" on the click element of the list
+        ul.find('li').click(function(){
+            $(this).siblings().removeClass('active');
             $(this).addClass('active');
         });
     }
 
     function formReset(){
-        $('.btn-clean').click(function(e){
+        $('button.btn-clean').click(function(e){
             e.preventDefault();
             $(this).parent().find('input:not([type=submit])').val('');
         });
