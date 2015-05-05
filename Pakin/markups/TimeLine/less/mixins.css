@@ -1,0 +1,43 @@
+.clear-flow:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.reset-list-style {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.hide-text {
+  overflow: hidden;
+  text-indent: -9999px;
+}
+.social-icons {
+  list-style: none;
+  float: right;
+  padding: 0;
+  margin: 27px 0 0;
+}
+.social-icons li {
+  float: left;
+}
+.social-icons li + li {
+  margin: 0 0 0 7px;
+}
+.social-icons a {
+  width: 38px;
+  height: 36px;
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(../images/social.gif) no-repeat;
+}
+.social-icons li .icon-rss {
+  background-position: 0 0;
+}
+.social-icons li .icon-facebook {
+  background-position: -44px 0;
+}
+.social-icons li .icon-twitter {
+  background-position: -87px 0;
+}
