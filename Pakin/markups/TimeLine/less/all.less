@@ -4,12 +4,18 @@
 
 
 .container {
-    background: rgba(0, 0, 0, .3);
-    max-width: 1140px;
     margin: 50px auto 0;
+    max-width: 1140px;
+    
+}
+
+
+.header-holder {
+    background: rgba(0, 0, 0, .3);
     padding: 50px 100px;
     .clear-flow;
 
+    
     .logo-holder {
         float: left;
         .logo {
@@ -89,7 +95,29 @@
                 background-position: @bg-position*4 0;
             }
         }
+    }
+}
 
+.nav-holder {
+    .clear-flow;    
+    background: rgba(0, 0, 0, .7);
+    padding: 25px 100px 0;
+
+    #nav {
+            
+        ul {
+            float: left;    
+            .reset-list-style;
+            
+            li {
+                float: left;
+                display: inline-block;
+            }
+        }
+    }
+
+    .search-form {
+        float: right;
     }
 }
 

@@ -41,25 +41,32 @@ $(document).ready(function(){
 	
 	function setListSettings(){
 		$('.container').each(function(index) {
-			var list = $(this).find('.list');
-			
-			//Set red color on first element of list
+			var list = $(this).find('.list');			
 			list.each(function(index) {
-				var firstEl = $(this).children().first();
-				firstEl.css('color','red');
 
-				//Add index before text for each even elements in list
-				$(this).children().each(function(index) {
-					var el = $(this)
-					if (el.index() % 2 == 0){
-						el.prepend(index + ' ')
+				//Set red color on first element of list
+				// var firstEl = $(this).children().first(); 
+				// firstEl.css('color','red');
+				
+				var allLi = $(this).children(); // find all 'li' elements
+				allLi.each(function(index) {		
+					var li = $(this)
+					//Set red color on first element of list
+					if (li.index() == 0) {
+						li.css('color','red');
 					}
 
-					el.click(function (){
-						alert('My number is: ' + index)
+					//remove all classes '.active' from li elements and set it to click element
+					li.click(function() {
+						allLi.removeClass('.active')
+						li.addClass('.active')	
 					})
-				});
 
+					//Add index before text for each even elements in list
+					if (li.index() % 2 == 0){
+						li.prepend(index + ' ')
+					}
+				});
 			});
 		});
 	}
