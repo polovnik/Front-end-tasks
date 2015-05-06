@@ -17,11 +17,10 @@ function autoMenu(){
 	listItems.each(function(){
 		listItems.width(listItemsWidthInteger - itemsLiPddings);
 		
-		if ($(this).height() > maxHeight) {
+		if ($(this).height() > maxHeight) { //@todo: check link height to update li height on resize
 			maxHeight = $(this).height();
 		}
 	});
-
 	listItems.height(maxHeight)
 		
 	fullSpace = listItemsWidthInteger - itemsLiPddings + listItemsModulo;

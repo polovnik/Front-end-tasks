@@ -20,7 +20,8 @@ function scaleBox(){
 	var Yinner;
 
 	btn.on("mousedown", function() {
-		holder.on("mousemove", positionEleemt)
+		holder.on("mousemove", positionEleemt) //@todo try listen event on document to prevent jumps and interruptions
+		//@todo also you can use flag instead of on/off inner events (separate btn events and document events)
 	});
 
 	btn.on('mouseup', function(){
