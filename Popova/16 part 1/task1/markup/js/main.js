@@ -6,7 +6,7 @@ $(document).ready(function(){
 	function setHeight(){
 
 		$('div.container').each(function(){
-			var boxes = $(this).find('div.box, div.block');
+			var boxes = $(this).find('div.box, div.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
             var boxesLength = boxes.length;
 			if(!boxesLength){
 				return false;
