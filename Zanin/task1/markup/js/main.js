@@ -25,7 +25,7 @@ $(document).ready(function(){
 	
 	function setHeight2(){
 		$('.container').each(function(index){
-			var blocks = $(this).find('.block');
+			var blocks = $(this).find('.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
 			if(!blocks.length){
 				return true;
 			}
@@ -69,7 +69,7 @@ function setLi(){
 			$(this).addClass("active");
 			$(this).siblings('li').removeClass("active");
 			$('.active').css("color", "#390");
-			$(".list li:not(.active)").css("color", "#000");
+			$(".list li:not(.active)").css("color", "#000"); //@todo: red color shouldn't disapear if click on other item
 		});
 	}
 
