@@ -33,7 +33,7 @@ $(document).ready(function(){
 	
 	function setHeightYellowBlock() {
 		var blocks = $(".container").children(".block");
-		var maxHeight = blocks.first().height();
+		var maxHeight = blocks.first().height();// @todo: pay attention that paddings of blocks can be different (use outerHeight)
 		blocks.each(function(){
 			var currentHeight = $(this).height();
 				if(currentHeight > maxHeight) {
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 	function liIndexPrepend(){
 		$(".container").find("li:odd").each(function(){
-			var index = $(this).index();
+			var index = $(this).index(); //@todo index is a parameter in function-handler: .each(function(index)....
 			$(this).prepend("№" + (index + 1) + " ");
 		});
 	};
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	function liActiveClass(){
 		$("li").click(function(){
 			$(this).siblings(".active").removeClass();
-			$(this).addClass("active");
+			$(this).addClass("active"); //@todo add styles for active state in css
 		});
 	};
 	
