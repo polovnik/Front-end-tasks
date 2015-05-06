@@ -25,7 +25,7 @@ $(document).ready(function(){
 //1.1
 	function setHeightBlock(){
 		$('.container').each(function(){
-			var blockes = $(this).find('.block');
+			var blockes = $(this).find('.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
 			var maxHeight = blockes.first().height();
 			blockes.each(function(){
 				var currentHeight = $(this).height()
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	
 //2)Первому элементу каждого списка назначить цвет текста красный
 	function colorLiFirst() {
-		$('.list').each(function(){
+		$('.list').each(function(){  //@todo: use first-child instead loop each
 			var childs = $(this).children('li:first');
 			childs.css("color", "#ff0000");
 		})
@@ -66,7 +66,7 @@ $(document).ready(function(){
 			var	childs = $(this).find("li");
 			childs.each(function(i){
 				var	textLI = $(this).text();
-				if ( ((i+1)%2) == 0 ) {
+				if ( ((i+1)%2) == 0 ) { //@todo: use "even"
 					$(this).text( i+1 + " " + textLI );
 				}
 			})
@@ -78,7 +78,7 @@ $(document).ready(function(){
 		$('.list').each(function(){
 			var childs = $(this).children();
 			$(childs).click(function(){
-				childs.each(function(){
+				childs.each(function(){ //@todo: doesn't need loop, apply method removeClass directly to variable childs
 					$(this).removeClass("active");
 				})	
 				$(this).addClass("active");
