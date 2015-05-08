@@ -1,0 +1,27 @@
+body {
+	background:#7D7D7D url(../images/bgr-wrapper.jpg) 50% 0 no-repeat;
+	min-width:900px;
+}
+
+#main {
+	background: url(../images/bgr-main.png);
+	width: 1140px;
+	min-height: 1256px;
+	margin: 50px auto;	
+}
+.logo {
+	margin-top: 0px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	width: 711px;
+	height: 53px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background: url(../images/logo.png) no-repeat;
+	float: left;
+	clear: right;
+}
+.logo a {
+	height: 100%;
+}
