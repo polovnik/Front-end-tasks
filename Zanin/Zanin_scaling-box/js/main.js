@@ -11,8 +11,8 @@ function scaleBox(){
 			var coordX = e.pageX - posLeft;
 			var coordY = e.pageY - posTop;
 			
-			$('.box').css('width', coordX);
-			$('.box').css('height', coordY);
+			$('.box').css('width', coordX);// add checking if width is less than max width
+			$('.box').css('height', coordY);// the same to height
 	}).mouseup(function(){
 		$(this).unbind("mousemove");
 		})
