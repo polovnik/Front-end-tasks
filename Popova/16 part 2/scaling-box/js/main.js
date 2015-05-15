@@ -3,7 +3,7 @@ $(function(){
 });
 
 function scaleBox(){
-    var windowHeight = $(document).height();
+    var windowHeight = $(document).height(); //use window instead document here:it will prevent scaling box under firebug panel
     var wrap = $('#wrapper');
     var maxWidth = wrap.width();
     var maxHeight = windowHeight - (wrap.outerHeight() - wrap.height());
