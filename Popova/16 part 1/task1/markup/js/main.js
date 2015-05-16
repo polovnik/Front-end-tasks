@@ -8,27 +8,28 @@ $(document).ready(function(){
 		$('div.container').each(function(){
 			var boxes = $(this).find('div.box, div.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
             var boxesLength = boxes.length;
-			if(!boxesLength){
-				return false;
+			if(boxesLength){
+                var containerWidth = $('div.container').width();
+                var boxWidth = boxes.outerWidth();
+                var qtyBoxes = Math.floor(containerWidth/boxWidth);
+                var endIndex = qtyBoxes < boxesLength ? qtyBoxes : boxesLength;
+                var startIndex = 0;
+
+                while (startIndex < boxesLength-1) {
+
+                    var maxHeight = boxes.eq(startIndex).outerHeight();
+
+                    boxes.slice(startIndex,endIndex).each(function(){
+                        var currentHeight = $(this).outerHeight();
+                        maxHeight = currentHeight > maxHeight ? currentHeight : maxHeight;
+                    });
+
+                    boxes.slice(startIndex,endIndex).outerHeight(maxHeight);
+                    startIndex += qtyBoxes;
+                    endIndex  += qtyBoxes;
+
+                }
 			}
-            var containerWidth = $('div.container').width();
-            var boxWidth = boxes.outerWidth();
-            var qtyBoxes = Math.floor(containerWidth/boxWidth);
-            var endIndex = qtyBoxes < boxesLength ? qtyBoxes : boxesLength;
-            var startIndex = 0;
-
-            while (endIndex <= boxesLength) {
-                var maxHeight = boxes.eq(startIndex).height();
-
-                boxes.slice(startIndex,endIndex).each(function(){
-                    var currentHeight = $(this).height();
-                    maxHeight = currentHeight > maxHeight ? currentHeight : maxHeight;
-                });
-
-                boxes.slice(startIndex,endIndex).height(maxHeight);
-                startIndex += qtyBoxes;
-                endIndex += qtyBoxes;
-            }
 		})
 	}
     function setListStyle(){
