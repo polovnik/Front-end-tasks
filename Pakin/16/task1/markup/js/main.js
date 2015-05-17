@@ -29,7 +29,7 @@ $(document).ready(function(){
 			if(block.length){
 				var maxHeight = block.first().height()
 				block.each(function() {
-					var currentHeight = $(this).height()
+					var currentHeight = $(this).height() // @todo: pay attention that paddings of blocks can be different (use outerHeight)
 					if (currentHeight > maxHeight) {
 						maxHeight = currentHeight;
 					}
@@ -52,18 +52,18 @@ $(document).ready(function(){
 				allLi.each(function(index) {		
 					var li = $(this)
 					//Set red color on first element of list
-					if (li.index() == 0) {
+					if (li.index() == 0) { //@todo: use first-child
 						li.css('color','red');
 					}
 
 					//remove all classes '.active' from li elements and set it to click element
 					li.click(function() {
-						allLi.removeClass('.active')
-						li.addClass('.active')	
+						allLi.removeClass('.active')//@todo: wrong using method (arguments), doesn't work. read documentation
+						li.addClass('.active')	//@todo: wrong using method (arguments), doesn't work. read documentation
 					})
 
 					//Add index before text for each even elements in list
-					if (li.index() % 2 == 0){
+					if (li.index() % 2 == 0){ //@todo: use "even"
 						li.prepend(index + ' ')
 					}
 				});
@@ -79,7 +79,7 @@ $(document).ready(function(){
 
 		cleanBtn.click(function (){
 			if (textField.val().length || passwordField.val().length){
-				textField.val('');
+				textField.val(''); //@todo: not nessesary to specify type of field, clean all text inputs in one action
 				passwordField.val('');
 			}
 			return false;   //this remove 'fly page on top'

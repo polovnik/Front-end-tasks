@@ -19,14 +19,18 @@ function scaleBox(){
 	var Xinner;
 	var Yinner;
 
-
 	btn.on("mousedown", function() {
-		holder.on("mousemove", positionEleemt)
+		holder.on("mousemove", positionEleemt) //@todo try listen event on document to prevent jumps and interruptions
+		//@todo also you can use flag instead of on/off inner events (separate btn events and document events)
 	});
 
 	btn.on('mouseup', function(){
 		holder.off("mousemove", positionEleemt)
-	})
+	});
+
+	$(window).on('mouseup', function(){
+		holder.off("mousemove", positionEleemt)
+	});
 
 	function positionEleemt(e){
 		// положение элемента
@@ -36,27 +40,21 @@ function scaleBox(){
 		// положение курсора внутри элемента
 		Xinner = e.pageX - elem_left;
 		Yinner = e.pageY - elem_top;
-		console.log("X: " + Xinner + " Y: " + Yinner); // вывод результата в консоль
 
 		moveBlock();
-		searchValues();
-	};
 
-	function searchValues() {
-		blockCurrentWidth = block.width();
-		blockCurrentHeight = block.height();
-		console.log('Block size: ' + blockCurrentWidth + ' x ' + blockCurrentHeight);
-		btnPositionTop = btn.offset().top;
-		btnPositionLeft = btn.offset().left;
+		if (blockNewWidth >= holder.width()) {
+			block.width(holder.width()) 
+		};
 	};
 	
-
-
-
 	function moveBlock(){
+		blockCurrentWidth = block.width();
+		blockCurrentHeight = block.height();
+		btnPositionTop = btn.offset().top;
+		btnPositionLeft = btn.offset().left;
 		blockNewWidth = blockCurrentWidth + (Xinner - blockCurrentWidth) - holderPadding + (btn.width() / 2);
 		blockNewHeight = blockCurrentHeight + (Yinner - blockCurrentHeight) - holderPadding + (btn.height() / 2);
-
 		block.width(blockNewWidth);
 		block.height(blockNewHeight);
 	};

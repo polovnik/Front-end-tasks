@@ -25,19 +25,19 @@ $(document).ready(function(){
 	
 	function setHeight2(){
 		$('.container').each(function(index){
-			var blocks = $(this).find('.block');
+			var blocks = $(this).find('.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
 			if(!blocks.length){
 				return true;
 			}
-			var maxHeight = blocks.first().height();
+			var maxHeight = blocks.first().outerHeight(true); //@done: something like this?
 			blocks.each(function(){
-				var currentHeight = $(this).height();
+				var currentHeight = $(this).outerHeight(true);
 				if(currentHeight > maxHeight){
 					maxHeight = currentHeight;
 				}
 			})
 			console.log('maxHeightBlock: ', maxHeight);
-			blocks.height(maxHeight);
+			blocks.outerHeight(maxHeight);
 		})
 	}
 
@@ -67,11 +67,15 @@ function setLi(){
 
 		$(".list li").click(function(){
 			$(this).addClass("active");
-			$(this).siblings('li').removeClass("active");
+			$(this).siblings('li').removeClass("active").css("color", "#000");
 			$('.active').css("color", "#390");
-			$(".list li:not(.active)").css("color", "#000");
+			// $(".list li:not(.active)").css("color", "#000"); //@todo: red color shouldn't disapear if click on other item
+			$('.list li:first-child').css("color", "#f00").click(function(){ //@done: not invented nothing better
+				$(this).css("color", "#390");
+			});
 		});
 	}
+	
 
 	clickLi()
 	$(window).resize(setHeight)

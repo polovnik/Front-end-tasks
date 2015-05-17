@@ -46,6 +46,13 @@ header, footer, article, section, hgroup, nav, figure { display: block; }
 	margin: 5px;
 	border: 1px solid #000;
 }
+.block:first-of-type {
+     padding: 40px 20px;
+ }
+
+.block:last-of-type {
+    padding: 50px 20px;
+}
 .active {
     font-weight: bold;
 }
