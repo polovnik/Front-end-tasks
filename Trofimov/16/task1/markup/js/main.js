@@ -22,11 +22,11 @@ $(document).ready(function(){
 			boxes.height(maxHeight);
 		})
 	}
-//1.1
+//1.1 
 	function setHeightBlock(){
 		$('.container').each(function(){
-			var blockes = $(this).find('.block'); // @todo: pay attention that paddings of blocks can be different (use outerHeight)
-			var maxHeight = blockes.first().height();
+			var blockes = $(this).find('.block'); //@todo: pay attention that paddings of blocks can be different (use outerHeight)
+			var maxHeight = blockes.first().outerHeight(); // +
 			blockes.each(function(){
 				var currentHeight = $(this).height()
 				if(currentHeight > maxHeight){
@@ -39,10 +39,15 @@ $(document).ready(function(){
 	
 //2)Первому элементу каждого списка назначить цвет текста красный
 	function colorLiFirst() {
+		$('.list li:first-child').css("color", "#ff0000"); // +
+		
+		/*
 		$('.list').each(function(){  //@todo: use first-child instead loop each
 			var childs = $(this).children('li:first');
 			childs.css("color", "#ff0000");
 		})
+		*/
+		
 		/* тоже рабочий вариант
 		$('.list').each(function(){
 			var childs = $(this).children();
@@ -78,9 +83,12 @@ $(document).ready(function(){
 		$('.list').each(function(){
 			var childs = $(this).children();
 			$(childs).click(function(){
+				childs.removeClass("active"); // +
+				/*
 				childs.each(function(){ //@todo: doesn't need loop, apply method removeClass directly to variable childs
 					$(this).removeClass("active");
-				})	
+				})
+				*/				
 				$(this).addClass("active");
 			})
 		})
