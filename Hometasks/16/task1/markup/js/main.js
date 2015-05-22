@@ -7,10 +7,7 @@ $(document).ready(function(){
 			if(!boxes.length){
 				return false;
 			}
-			//console.log('container ' + index)
 			var maxHeight = boxes.first().height();
-			//console.log('boxes', boxes)
-			//console.log('start maxHeight', maxHeight)
 			boxes.each(function(){
 				var currentHeight = $(this).height()
 				if(currentHeight > maxHeight){
@@ -21,7 +18,8 @@ $(document).ready(function(){
 			boxes.height(maxHeight);
 		})
 	}
-	
+
 	$(window).resize(setHeight)
+
 })
 	
