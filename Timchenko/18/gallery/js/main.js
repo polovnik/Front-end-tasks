@@ -62,52 +62,72 @@ function gallerySlide(galleryblock) {
 		currentPosition = listGallery.css('marginLeft');
 		currentPosition = parseInt(currentPosition);
 
-		console.log(currentPosition)
-
-		moveLeft = function() {
-			currentPosition = listGallery.css('marginLeft');
-			currentPosition = parseInt(currentPosition);
-			listGallery.animate({
-				marginLeft: (currentPosition + step)
-			}, 200);
-			flag = true;
-		}
-		moveRight = function() {
-			currentPosition = listGallery.css('marginLeft');
-			currentPosition = parseInt(currentPosition);
-			listGallery.animate({
-				marginLeft: (currentPosition - step)
-			}, 200);
-			flag = false;
-		};
-
 		btnPrev.on('click', function(e) {
 			e.preventDefault();
+			currentPosition = listGallery.css('marginLeft');
+			currentPosition = parseInt(currentPosition);
 
-			if (flag === true ) {
+			if (flag === true) {
 				moveLeft();
-			} else if (currentPosition > 0) {
-				return false;
 			};
-
-			flag = false;
+			
 		});
 
-		/*btnNext.on('click', function(e) {
+		btnNext.on('click', function(e) {
 			e.preventDefault();
-			flag = true;
+			currentPosition = listGallery.css('marginLeft');
+			currentPosition = parseInt(currentPosition);
 
-			if (flag === true ) {
+			if (flag === true) {
 				moveRight();
-			} else if (currentPosition === (itemsControl * step)) {
-				return false;
 			};
-			console.log(currentPosition)	
-		});*/
-		
+		});
+
+		moveLeft = function() {
+			flag = false;
+			
+			if ((currentPosition * (-1)) <= 0) {
+				listGallery.animate({
+					marginLeft: 0
+				}, 500, function() {
+					flag = true;
+				});
+			} else {
+				listGallery.animate({
+					marginLeft: (currentPosition + step)
+				}, 500, function() {
+					flag = true;
+				});
+			};
+		}
+		moveRight = function() {
+			flag = false;
+			
+			if ((currentPosition * (-1)) >= ((slidesAmount * step) - step)) {
+				listGallery.animate({
+					marginLeft: (((slidesAmount * step) - (step)) * (-1))
+				}, 500, function() {
+					flag = true;
+				});
+			} else {
+				listGallery.animate({
+					marginLeft: (currentPosition - step)
+				}, 500, function() {
+					flag = true;
+				});
+			};
+
+			console.log(currentPosition)
+			console.log(+((slidesAmount * step)-step))
+		};
+
 		//show slide
 		linksControl.on('click', function(e) {
 			e.preventDefault();
+			currentPosition = listGallery.css('marginLeft');
+			currentPosition = parseInt(currentPosition);
+
+			console.log(currentPosition)
 
 			currentSlide = linksControl.index($(this));
 			console.log(currentSlide)
