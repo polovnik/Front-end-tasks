@@ -24,6 +24,7 @@ function gallerySlide(galleryblock) {
 		var moveLeft;
 		var moveRight;
 		var flag = true;
+		var animateSpeed = 400;
 
 		$(this).append('<ul>');
 		btnPrev = $('<li>');
@@ -33,6 +34,8 @@ function gallerySlide(galleryblock) {
 		listGallery = $(this).find('ul.gallery');
 		slides = $(this).find('li');
 		slidesAmount = slides.length;
+		slides.css('z-index', 0);
+		currentPosition = slides.eq(0).addClass('active').css('z-index', 1);
 
 		//pagination
 		control = $(this).find('> ul').addClass('control');
@@ -47,37 +50,27 @@ function gallerySlide(galleryblock) {
 			$(this).append('<a>');
 			$(this).find('a').attr('href', '#').html(index + 1)
 		});
-
 		linksControl = control.find('a');
-
+		
 		//prev next
 		btnPrev.append('<a>');
 		btnNext.append('<a>');
-		btnPrev.find('a').addClass('previous').text('PREV');
+		btnPrev.find('a').addClass('prev').text('PREV');
 		btnNext.find('a').addClass('next').text('NEXT');
-
 		control.prepend(btnPrev);
 		control.append(btnNext);
 
-		currentPosition = listGallery.css('marginLeft');
-		currentPosition = parseInt(currentPosition);
-
+		//event previous slide
 		btnPrev.on('click', function(e) {
 			e.preventDefault();
-			currentPosition = listGallery.css('marginLeft');
-			currentPosition = parseInt(currentPosition);
-
 			if (flag === true) {
 				moveLeft();
 			};
-			
 		});
 
+		//event next slide
 		btnNext.on('click', function(e) {
 			e.preventDefault();
-			currentPosition = listGallery.css('marginLeft');
-			currentPosition = parseInt(currentPosition);
-
 			if (flag === true) {
 				moveRight();
 			};
@@ -85,55 +78,69 @@ function gallerySlide(galleryblock) {
 
 		moveLeft = function() {
 			flag = false;
-			
-			if ((currentPosition * (-1)) <= 0) {
-				listGallery.animate({
-					marginLeft: 0
-				}, 500, function() {
+			var i = listGallery.find('li.active');
+			currentPosition = slides.index(i)
+
+			if (currentPosition <= 0) {
+				i.animate({
+					zIndex:1,
+					opacity:1
+				}, animateSpeed, function() {
 					flag = true;
 				});
 			} else {
-				listGallery.animate({
-					marginLeft: (currentPosition + step)
-				}, 500, function() {
+				slides.css({
+					zIndex:0,
+					opacity:0
+				}).removeClass('active');
+				i.prev().animate({
+					zIndex:1,
+					opacity:1
+				}, animateSpeed, function() {
 					flag = true;
-				});
+				}).addClass('active');
 			};
 		}
 		moveRight = function() {
 			flag = false;
+			var i = listGallery.find('li.active');
+			currentPosition = slides.index(i)
 			
-			if ((currentPosition * (-1)) >= ((slidesAmount * step) - step)) {
-				listGallery.animate({
-					marginLeft: (((slidesAmount * step) - (step)) * (-1))
-				}, 500, function() {
+			if (currentPosition >= (slidesAmount - 1)) {
+				i.animate({
+					zIndex:1,
+					opacity:1
+				}, animateSpeed, function() {
 					flag = true;
 				});
 			} else {
-				listGallery.animate({
-					marginLeft: (currentPosition - step)
-				}, 500, function() {
+				slides.css({
+					zIndex:0,
+					opacity:0
+				}).removeClass('active');
+				i.next().animate({
+					zIndex:1,
+					opacity:1
+				}, animateSpeed, function() {
 					flag = true;
-				});
+				}).addClass('active');
 			};
-
-			console.log(currentPosition)
-			console.log(+((slidesAmount * step)-step))
 		};
 
 		//show slide
 		linksControl.on('click', function(e) {
 			e.preventDefault();
-			currentPosition = listGallery.css('marginLeft');
-			currentPosition = parseInt(currentPosition);
-
-			console.log(currentPosition)
-
 			currentSlide = linksControl.index($(this));
-			console.log(currentSlide)
-			listGallery.animate({
-				marginLeft: - (currentSlide * step)
-			});
+			currentPosition = slides.eq(currentSlide);
+
+			slides.css({
+				zIndex:0,
+				opacity:0
+			}).removeClass('active');
+			currentPosition.animate({
+				zIndex:1,
+				opacity:1
+			}).addClass('active');
 		});
 	});
 };
