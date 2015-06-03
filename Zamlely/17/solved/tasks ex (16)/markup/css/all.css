@@ -29,11 +29,9 @@ header, footer, article, section, hgroup, nav, figure { display: block; }
 .container{
 	overflow: hidden;
 	margin-bottom: 20px;
-	border: 1px solid red;
 }
 .box{
-	display: inline-block;
-	vertical-align: top;
+	float: left;
 	width: 30%;
 	background: #ccc;
 	margin: 0 1px;
@@ -46,6 +44,6 @@ header, footer, article, section, hgroup, nav, figure { display: block; }
 	margin: 5px;
 	border: 1px solid #000;
 }
-li.active {
-	background: red;
+.list .active{
+	color: #0f0 !important;
 }
