@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Gallery</title>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<style>
+		.gallery-holder{
+			width:800px;
+			height:600px;
+			margin: 0 auto;
+		}
+		.gallery{
+			position:relative;
+			margin:0;
+			padding:0;
+			list-style:none;
+			width: 800px;
+		}
+		.gallery li {
+			position:absolute;
+			width:800px;
+			z-index:1;
+			left:0;
+			top:0;
+		}
+		
+		.gallery li:first-child {
+			z-index:2;
+		}
+				
+	
+		.control{
+			margin:10px auto;
+			text-align:center;
+		}
+		.control ul,
+		.control li{
+			display: inline;
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.control a{
+			margin:0 5px;
+			padding: 0 7px;
+			background:#ccc;
+			text-decoration:none;
+		}
+		.control a:hover{
+			color: red;
+		}
+		
+		.control .active a {
+			background:#0f0;;
+		}
+	</style>
+</head>
+<body>
+<body>
+<div id="container">
+	<div class="gallery-block">
+		<div class="gallery-holder">
+			<ul class='gallery'>
+				<li><div class="box"><img src="img/1.jpg" width="800" height="600" alt="image description" /></div></li>
+				<li><div class="box"><img src="img/2.jpg" width="800" height="600" alt="image description" /></div></li>
+				<li><div class="box"><img src="img/3.jpg" width="800" height="600" alt="image description" /></div></li>
+				<li><div class="box"><img src="img/4.jpg" width="800" height="600" alt="image description" /></div></li>
+				<li><div class="box"><img src="img/5.jpg" width="800" height="600" alt="image description" /></div></li>
+				<li><div class="box"><img src="img/6.jpg" width="800" height="600" alt="image description" /></div></li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+</body>
+</body>
+</html>

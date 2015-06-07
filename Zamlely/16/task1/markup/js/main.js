@@ -33,14 +33,14 @@ $(document).ready(function(){
 	
 	function setHeightYellowBlock() {
 		var blocks = $(".container").children(".block");
-		var maxHeight = blocks.first().height();// @todo: pay attention that paddings of blocks can be different (use outerHeight)
+		var maxHeight = blocks.first().outerHeight();// @todo: pay attention that paddings of blocks can be different (use outerHeight)
 		blocks.each(function(){
-			var currentHeight = $(this).height();
+			var currentHeight = $(this).outerHeight();
 				if(currentHeight > maxHeight) {
 					maxHeight = currentHeight;
 				}
 		});
-		blocks.height(maxHeight);
+		blocks.outerHeight(maxHeight);
 	};
 		
 	function firstLiRedColor() {
@@ -61,7 +61,7 @@ $(document).ready(function(){
 	}); */ 
 
 	function liIndexPrepend(){
-		$(".container").find("li:odd").each(function(){
+		$(".container").find("li:odd").each(function(index){
 			var index = $(this).index(); //@todo index is a parameter in function-handler: .each(function(index)....
 			$(this).prepend("№" + (index + 1) + " ");
 		});

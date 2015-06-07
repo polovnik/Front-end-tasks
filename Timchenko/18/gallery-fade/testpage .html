@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Gallery</title>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<style>
+		.gallery-holder{
+			overflow:hidden;
+			width:600px;
+			height:200px;
+			margin: 0 auto;
+		}
+		.gallery{
+			margin:0;
+			padding:0;
+			list-style:none;
+			width: 600px;
+			position: relative;
+			color:#fff;
+		}
+		.gallery li{
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			width:100%;
+			height:198px;
+		}
+		.gallery .box{
+			height:197px;
+			border: 1px solid black;
+			font-size:24px;
+			font-weight:bold;
+			text-align:center;
+			line-height:100px;
+		}
+		.control{
+			margin:10px auto;
+			text-align:center;
+		}
+		.control ul,
+		.control li{
+			display: inline;
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.control a{
+			margin:0 5px;
+			padding: 0 7px;
+			background:#ccc;
+			text-decoration:none;
+		}
+		.control a:hover{
+			color: red;
+		}
+		.next,
+		.prev {cursor: pointer;}
+	</style>
+</head>
+<body>
+<body>
+<div id="container">
+	<div class="gallery-block">
+		<div class="gallery-holder">
+			<ul class='gallery'>
+				<li style="background:#408ae5;"><div class="box">1</div></li>
+				<li style="background:#40e5c8;"><div class="box">2</div></li>
+				<li style="background:#2c6d0c;"><div class="box">3</div></li>
+				<li style="background:#da114f;"><div class="box">4</div></li>
+				<li style="background:#111bda;"><div class="box">5</div></li>
+				<li style="background:#e508ce;"><div class="box">6</div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="gallery-block">
+		<div class="gallery-holder">
+			<ul class='gallery'>
+				<li style="background:#408ae5;"><div class="box">1</div></li>
+				<li style="background:#40e5c8;"><div class="box">2</div></li>
+				<li style="background:#2c6d0c;"><div class="box">3</div></li>
+				<li style="background:#da114f;"><div class="box">4</div></li>
+				<li style="background:#111bda;"><div class="box">5</div></li>
+				<li style="background:#e508ce;"><div class="box">6</div></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,13 @@
+$(function(){
+	moveBlock();
+	
+	function moveBlock(){
+		
+	}
+})
+
+
+
+
+
+
